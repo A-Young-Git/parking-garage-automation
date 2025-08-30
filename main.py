@@ -24,16 +24,17 @@ def enter() -> str | None:
 
 
 def exit():
-    ticket_number = input("Please provide your ticket number and press 'Enter': ")
+    while True:
+        ticket_number = input("Please provide your ticket number and press 'Enter': ")
 
-    for ticket in active_tickets:
-        if ticket_number == ticket.occupant_number:
-            active_tickets.remove(ticket)
-            break
-        else:
-            print(
-                "Ticket number not found. Please check you entered it correctly and try again."
-            )
+        for ticket in active_tickets:
+            if ticket_number == ticket.occupant_number:
+                active_tickets.remove(ticket)
+                break
+            else:
+                print(
+                    "Ticket number not found. Please check you entered it correctly and try again."
+                )
 
 
 if __name__ == "__main__":
@@ -49,3 +50,5 @@ if __name__ == "__main__":
         )
     else:
         print("Sorry. We are at full capacity. Please try again later.")
+
+    exit()
