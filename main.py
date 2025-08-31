@@ -8,7 +8,7 @@ from collections import namedtuple
 - Two functions, entry() and exit() will service these customers.
 """
 
-garage = {"1": 20, "2": 20, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0}
+garage = {"1": 0, "2": 0, "3": 14, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0}
 
 Ticket = namedtuple("Ticket", ["occupant_number", "garage_floor"])
 
@@ -25,12 +25,15 @@ def enter() -> str | None:
 
 def exit():
     while True:
-        ticket_number = input("Please provide your ticket number and press 'Enter': ")
+        ticket_number = int(
+            input("Please provide your ticket number and press 'Enter': ")
+        )
 
         for ticket in active_tickets:
-            if ticket_number == ticket.occupant_number:
+            if ticket_number == ticket[0]:
                 active_tickets.remove(ticket)
-                break
+                print("You are all set! Thanks for using T's Garage Services")
+                return
             else:
                 print(
                     "Ticket number not found. Please check you entered it correctly and try again."
@@ -38,7 +41,7 @@ def exit():
 
 
 if __name__ == "__main__":
-    input("Welcome to T's Garage Services! Press 'Enter' for a number: ")
+    input("Welcome to T's Garage Services! Press 'Enter' to receive a ticket: ")
 
     floor = enter()
 
