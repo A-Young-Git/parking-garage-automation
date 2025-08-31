@@ -8,7 +8,7 @@ from collections import namedtuple
 - Two functions, enter() and exit() will service these customers.
 """
 
-garage = {"1": 0, "2": 0, "3": 14, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0}
+garage = {"1": 20, "2": 20, "3": 20, "4": 20, "5": 20, "6": 20, "7": 20, "8": 20}
 
 Ticket = namedtuple("Ticket", ["occupant_number", "garage_floor"])
 
