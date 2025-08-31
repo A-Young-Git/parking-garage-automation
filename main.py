@@ -5,7 +5,7 @@ from collections import namedtuple
 - The customer is expected to go to the floor they are assigned 
 - We start on the first floor, and work upwards. 
 - As spaces open up on lower floors, direct new customers there. 
-- Two functions, entry() and exit() will service these customers.
+- Two functions, enter() and exit() will service these customers.
 """
 
 garage = {"1": 0, "2": 0, "3": 14, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0}
