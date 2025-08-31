@@ -35,9 +35,11 @@ def exit():
                 print("You are all set! Thanks for using T's Garage Services")
                 return
             else:
-                print(
-                    "Ticket number not found. Please check you entered it correctly and try again."
-                )
+                continue
+
+        print(
+            "Ticket number not found. Please check you entered it correctly and try again."
+        )
 
 
 if __name__ == "__main__":
