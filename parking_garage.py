@@ -1,14 +1,6 @@
 import itertools
 from dataclasses import dataclass
 
-"""
-This ParkingGarage class initializes with an 8 floor and 20 space 
-per floor capacity. It holds an enter() and exit_garage() method for customers
-entering and exiting the ParkingGarage. Tickets are added/removed 
-via an active tickets array. 
-"""
-
-
 @dataclass
 class Ticket:
     occupant_number: int
@@ -16,6 +8,20 @@ class Ticket:
 
 
 class ParkingGarage:
+    """
+    Manages an 8-floor parking garage with 20 spaces per floor.
+
+    Provides methods for customers to enter and exit the garage. Tickets
+    are tracked in the active_tickets list as customers come and go.
+
+    Methods
+    -------
+    enter()
+        Assigns a parking space to a new customer if available.
+    exit_garage()
+        Frees a parking space associated with the provided ticket.
+    """
+    
     def __init__(self) -> None:
         self.active_tickets = []
         self.capacity = {str(i): 20 for i in range(1, 9)}
