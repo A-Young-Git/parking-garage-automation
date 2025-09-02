@@ -3,6 +3,9 @@ from dataclasses import dataclass
 
 @dataclass
 class Ticket:
+    """
+    Represents a garage ticket for a specific occupant and floor.
+    """
     occupant_number: int
     garage_floor: str
 
@@ -10,16 +13,7 @@ class Ticket:
 class ParkingGarage:
     """
     Manages an 8-floor parking garage with 20 spaces per floor.
-
-    Provides methods for customers to enter and exit the garage. Tickets
-    are tracked in the active_tickets list as customers come and go.
-
-    Methods
-    -------
-    enter()
-        Assigns a parking space to a new customer if available.
-    exit_garage()
-        Frees a parking space associated with the provided ticket.
+    Tracks tickets for garage entry and exit.
     """
     
     def __init__(self) -> None:
@@ -28,6 +22,14 @@ class ParkingGarage:
         self.ticket_counter = itertools.count(1)
 
     def enter(self) -> Ticket | None:
+        """
+        Assigns a parking space and returns a Ticket if capacity allows.
+
+        Returns
+        -------
+        Ticket or None
+            A Ticket object if space is available, otherwise None.
+        """
         for floor, spots in self.capacity.items():
             if spots > 0:
                 self.capacity[floor] -= 1
@@ -37,6 +39,19 @@ class ParkingGarage:
         return None
 
     def exit_garage(self, ticket_number: int) -> bool:
+        """
+        Removes the ticket and frees up a space. 
+
+        Parameters
+        ----------
+        ticket_number : int
+            The number of the ticket to exit. 
+
+        Returns
+        -------
+        bool
+            True if exit was successful, False otherwise. 
+        """
         for ticket in self.active_tickets:
             if ticket_number == ticket.occupant_number:
                 self.active_tickets.remove(ticket)
