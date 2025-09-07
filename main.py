@@ -4,6 +4,13 @@ if __name__ == "__main__":
     print("Welcome to T's Garage Services!")
     input("Press 'Enter' to receive a ticket: ")
 
+    # lambda and jenkins test
+    x = [1, 2, 3, 4]
+    squares = list(map(lambda x: x**2, x))
+    lambda x: x + 10
+
+    print(x)
+
     parking_garage = ParkingGarage()
     ticket = parking_garage.enter()
 
